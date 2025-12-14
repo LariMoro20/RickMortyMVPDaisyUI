@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Fundo -->
+  <rect width="100" height="100" fill="#1d232a" rx="15"/>
+  
+  <!-- Portal externo (verde) -->
+  <ellipse cx="50" cy="50" rx="35" ry="35" fill="none" stroke="#97ce4c" stroke-width="3">
+    <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Portal médio -->
+  <ellipse cx="50" cy="50" rx="27" ry="27" fill="none" stroke="#97ce4c" stroke-width="2" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;0.3;0.7" dur="2s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Portal interno -->
+  <ellipse cx="50" cy="50" rx="20" ry="20" fill="none" stroke="#97ce4c" stroke-width="2" opacity="0.5">
+    <animate attributeName="opacity" values="0.5;0.2;0.5" dur="2s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Centro do portal -->
+  <circle cx="50" cy="50" r="12" fill="#97ce4c" opacity="0.3">
+    <animate attributeName="r" values="12;15;12" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Brilho central -->
+  <circle cx="50" cy="50" r="6" fill="#d4f497">
+    <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Partículas -->
+  <circle cx="50" cy="25" r="2" fill="#97ce4c" opacity="0.6">
+    <animate attributeName="cy" values="25;75;25" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="50" cy="75" r="2" fill="#97ce4c" opacity="0.6">
+    <animate attributeName="cy" values="75;25;75" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/>
+  </circle>
+</svg>

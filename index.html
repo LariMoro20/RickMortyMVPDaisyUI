@@ -1,6 +1,7 @@
 <!doctype html>
-<html lang="">
+<html lang="pt-BR">
   <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rick and Morty Explorer | Projeto Vue.js + DaisyUI</title>
     <meta
@@ -39,8 +40,10 @@
     <meta name="twitter:image" content="https://seu-dominio.com/preview.jpg" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon_svg.svg" />
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#97ce4c" />
@@ -51,31 +54,33 @@
     <!-- Preconnect para Performance -->
     <link rel="preconnect" href="https://rickandmortyapi.com" />
     <link rel="dns-prefetch" href="https://rickandmortyapi.com" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Rick and Morty Explorer",
+        "description": "Aplicação web para explorar personagens, episódios e locações do universo Rick and Morty",
+        "url": "https://seu-dominio.com",
+        "applicationCategory": "EntertainmentApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "BRL"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Larissa Santos"
+        },
+        "inLanguage": "pt-BR",
+        "screenshot": "https://seu-dominio.com/screenshot.jpg"
+      }
+    </script>
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Rick and Morty Explorer",
-      "description": "Aplicação web para explorar personagens, episódios e locações do universo Rick and Morty",
-      "url": "https://seu-dominio.com",
-      "applicationCategory": "EntertainmentApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "BRL"
-      },
-      "creator": {
-        "@type": "Person",
-        "name": "Seu Nome"
-      },
-      "inLanguage": "pt-BR",
-      "screenshot": "https://seu-dominio.com/screenshot.jpg"
-    }
-  </script>
 </html>
