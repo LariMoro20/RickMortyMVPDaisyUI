@@ -1,7 +1,6 @@
 <template>
   <div class="h-screen">
     <Header />
-
     <RouterView />
     <Footer />
   </div>
