@@ -24,8 +24,6 @@
 </template>
 
 <script setup>
-import EpisodeCharacter from './EpisodeCharacter.vue'
-
 const emit = defineEmits(['clickEpisode'])
 
 defineProps({
