@@ -1,6 +1,8 @@
 <template>
   <dialog class="modal" :class="{ 'modal-open': show }" @click.self="closeModal">
-    <div class="modal-box w-full max-w-6xl h-[80vh] p-0 bg-base-100 text-base-content">
+    <div
+      class="modal-box w-full max-w-6xl h-[100dvh] sm:h-[80vh] p-0 bg-base-100 text-base-content"
+    >
       <div class="flex flex-col h-full">
         <template v-if="episode">
           <div class="px-6 py-4 border-b border-base-300 flex items-start justify-between">

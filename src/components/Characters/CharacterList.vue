@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-6">
-    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <CharacterCard
         v-for="character in paginatedCharacters"
         :key="character.id"
