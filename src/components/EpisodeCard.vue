@@ -1,7 +1,7 @@
 <template>
   <div
     @click="emit('clickEpisode')"
-    class="card bg-base-100 shadow-sm hover:shadow-md hover:bg-neutral-content cursor-pointer"
+    class="card bg-white p-3 shadow-sm hover:shadow-md hover:bg-neutral-content cursor-pointer"
   >
     <EpisodeCharacter :characters="characters" />
     <div class="card-body">

@@ -1,7 +1,9 @@
 <template>
   <div class="h-screen">
-    <NavBar />
+    <Header />
+
     <RouterView />
+    <Footer />
   </div>
 </template>
 
