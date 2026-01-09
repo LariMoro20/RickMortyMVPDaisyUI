@@ -46,7 +46,7 @@
         </template>
 
         <div class="px-6 py-4 border-t border-base-300 flex justify-end">
-          <button class="btn btn-primary" @click="closeModal">Fechar</button>
+          <button class="btn btn-outline" @click="closeModal">Fechar</button>
         </div>
       </div>
     </div>

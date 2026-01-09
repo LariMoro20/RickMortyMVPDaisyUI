@@ -24,26 +24,28 @@
           </p>
 
           <p class="font-semibold mb-2">Links de estudo:</p>
-          <ul class="list-disc list-inside space-y-1 text-sm">
+          <ul class="mt-3 space-y-2">
             <li>
               <a
-                class="link link-primary"
                 href="https://rickandmortyapi.com/"
                 target="_blank"
                 rel="noopener"
+                class="flex items-center gap-3 p-3 rounded-lg bg-base-200 hover:bg-base-300 transition-colors"
               >
-                The Rick and Morty API
+                <i class="ri-link text-primary text-lg"></i>
+                <span class="text-sm font-medium">The Rick and Morty API</span>
               </a>
             </li>
 
             <li>
               <a
-                class="link link-primary"
                 href="https://cursovuejs.com.br/"
                 target="_blank"
                 rel="noopener"
+                class="flex items-center gap-3 p-3 rounded-lg bg-base-200 hover:bg-base-300 transition-colors"
               >
-                Curso Vue Expert
+                <i class="ri-graduation-cap-line text-primary text-lg"></i>
+                <span class="text-sm font-medium">Curso Vue Expert</span>
               </a>
             </li>
           </ul>
@@ -66,7 +68,7 @@
           </p>
 
           <div class="modal-action">
-            <button class="btn btn-primary" @click="closeModal">Fechar</button>
+            <button class="btn btn-outline" @click="closeModal">Fechar</button>
           </div>
         </div>
       </dialog>

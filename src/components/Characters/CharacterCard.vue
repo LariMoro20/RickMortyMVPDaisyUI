@@ -1,5 +1,5 @@
 <template>
-  <div class="card bg-base-100 shadow-sm hover:shadow-md transition cursor-pointer">
+  <div class="card bg-base-100 shadow-sm hover:shadow-md transition">
     <figure class="px-4 pt-4">
       <img :src="image" :alt="name" class="rounded-xl w-full object-cover" />
     </figure>
