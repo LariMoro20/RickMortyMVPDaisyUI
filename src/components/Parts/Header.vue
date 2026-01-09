@@ -75,7 +75,7 @@
       <!-- GITHUB -->
       <a
         class="btn btn-ghost"
-        href="https://github.com/LariMoro20/RickMortyApp"
+        href="https://github.com/LariMoro20/RickMortyMVPDaisyUI"
         aria-label="GitHub"
         target="_blank"
         rel="noopener"
