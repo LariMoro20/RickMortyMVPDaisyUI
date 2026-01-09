@@ -12,8 +12,7 @@
       </h2>
 
       <p class="text-sm opacity-80">
-        A card component has a figure, a body part, and inside body there are title and actions
-        parts
+        Clique e confira a lista completa de personagens e informações
       </p>
 
       <div class="card-actions justify-end">

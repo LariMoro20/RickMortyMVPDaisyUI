@@ -16,7 +16,7 @@
             </div>
 
             <button
-              class="btn btn-sm btn-circle btn-ghost"
+              class="btn btn-lg btn-circle btn-ghost"
               @click="closeModal"
               aria-label="Fechar modal"
             >
