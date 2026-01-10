@@ -17,7 +17,7 @@
           class="join-item btn btn-lg md:btn-md"
           :class="{ 'btn-active': page === actualPage }"
           v-for="page in totalPages"
-          @click="getEpisodesData(page)"
+          @click="actualPage = page"
         >
           {{ page }}
         </button>
@@ -29,25 +29,14 @@
 </template>
 
 <script setup>
-import axios from 'axios'
-const episodes = ref([])
+import { useEpisodes } from '@/composables/useEpisodes'
+
 const episodeSelected = ref()
 const actualPage = ref(1)
-const totalPages = ref(0)
 const modal = ref(false)
-const getEpisodesData = async (page) => {
-  try {
-    const response = await axios.get(`https://rickandmortyapi.com/api/episode?page=${page}`)
-    episodes.value = response.data.results
-    totalPages.value = response.data.info.pages
-    actualPage.value = page
-  } catch (error) {
-    console.error(error)
-  }
-}
-onMounted(() => {
-  getEpisodesData(actualPage.value)
-})
+const episodes = computed(() => episodesData.value?.results ?? [])
+const totalPages = computed(() => episodesData.value?.info?.pages ?? 0)
+const { data: episodesData, isLoading, error } = useEpisodes(actualPage)
 
 const openModal = (epId) => {
   episodeSelected.value = epId

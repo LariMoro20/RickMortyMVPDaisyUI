@@ -52,52 +52,18 @@
 </template>
 
 <script setup>
-import axios from 'axios'
-import { ref, watch } from 'vue'
+import { useEpisode, useCharacters } from '@/composables/useEpisodes'
 
 const props = defineProps({
-  id: String,
+  id: [String, Number],
 })
-
+const episodeId = computed(() => props.id)
+const { data: episode, isLoading: loadingEpisode } = useEpisode(episodeId)
+const characterUrls = computed(() => episode.value?.characters ?? [])
+const { data: characters, isLoading: loadingCharacters } = useCharacters(characterUrls)
 const show = defineModel()
-
-const episode = ref(null)
-const characters = ref([])
-const loadingCharacters = ref(false)
-
-const getEpisodeData = async () => {
-  try {
-    const response = await axios.get(`https://rickandmortyapi.com/api/episode/${props.id}`)
-    episode.value = response.data
-    await getCharacters(response.data.characters)
-  } catch (error) {
-    console.error(error)
-  }
-}
-
-const getCharacters = async (urls) => {
-  try {
-    loadingCharacters.value = true
-    const requests = urls.map((url) => axios.get(url))
-    const responses = await Promise.all(requests)
-    characters.value = responses.map((res) => res.data)
-  } catch (error) {
-    console.error(error)
-  } finally {
-    loadingCharacters.value = false
-  }
-}
 
 const closeModal = () => {
   show.value = false
 }
-
-watch(show, (newValue) => {
-  if (newValue) {
-    getEpisodeData()
-  } else {
-    episode.value = null
-    characters.value = []
-  }
-})
 </script>
