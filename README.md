@@ -6,6 +6,10 @@ Projeto desenvolvido durante o curso de Vue.js, utilizando as melhores práticas
 
 Este é um template moderno para desenvolvimento de aplicações Vue 3, combinando a velocidade do Vite com a beleza e praticidade dos componentes DaisyUI.
 
+**[Ver Demo ao Vivo](https://rickmorty-daisyui.vercel.app/)**
+
+![Preview da Aplicação](public/preview.png)
+
 ## 🚀 Tecnologias
 
 - **[Vue 3](https://vuejs.org/)** - Framework JavaScript progressivo
