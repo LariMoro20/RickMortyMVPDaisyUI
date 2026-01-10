@@ -1,6 +1,6 @@
 # 🎨 MVP DaisyUI
 
-Projeto desenvolvido durante o curso de Vue.js, utilizando as melhores práticas com Vue 3, Vite, TailwindCSS e DaisyUI.
+Projeto desenvolvido durante o [VueExpert](https://cursovuejs.com.br/), utilizando as melhores práticas com Vue 3, Vite, TailwindCSS e DaisyUI.
 
 **[Ver Demo ao Vivo](https://rickmorty-daisyui.vercel.app/)**
 
