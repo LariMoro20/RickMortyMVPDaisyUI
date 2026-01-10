@@ -12,6 +12,7 @@ Este é um template moderno para desenvolvimento de aplicações Vue 3, combinan
 - **[Vite](https://vite.dev/)** - Build tool ultrarrápido
 - **[TailwindCSS](https://tailwindcss.com/)** - Framework CSS utilitário
 - **[DaisyUI](https://daisyui.com/)** - Biblioteca de componentes para Tailwind
+- **[Pinia Colada](https://pinia-colada.esm.dev/)** - Data fetching inteligente para Vue
 - **[ESLint](https://eslint.org/)** - Linter para qualidade de código
 
 ## ✨ Características
@@ -20,6 +21,7 @@ Este é um template moderno para desenvolvimento de aplicações Vue 3, combinan
 - 🎨 Componentes prontos com DaisyUI
 - 🎭 [Múltiplos temas disponíveis](https://daisyui.com/theme-generator/)
 - 📦 Auto-import de composables Vue (ref, computed, etc)
+- 🍹 Data fetching com cache automático via Pinia Colada
 - 🔍 ESLint configurado
 
 ## 🛠️ Configuração do Ambiente
@@ -177,6 +179,102 @@ export default defineConfig({
 - Descubra e registre componentes automaticamente
 - Melhora a experiência de desenvolvimento
 
+---
+
+### 🍹 Pinia Colada - Data Fetching Inteligente
+
+O [Pinia Colada](https://pinia-colada.esm.dev/) é uma biblioteca de data fetching que traz o melhor do React Query/TanStack Query para o ecossistema Vue, integrada nativamente com Pinia.
+
+```bash
+npm install @pinia/colada pinia
+```
+
+Em `main.js`:
+
+```javascript
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import { PiniaColada } from '@pinia/colada'
+
+const app = createApp(App)
+const pinia = createPinia()
+
+app.use(pinia)
+app.use(PiniaColada)
+app.mount('#app')
+```
+
+**Exemplo de uso com composables:**
+
+```javascript
+// src/composables/useEpisodes.js
+import { useQuery } from '@pinia/colada'
+import axios from 'axios'
+
+export function useEpisodes(page) {
+  return useQuery({
+    key: () => ['episodes', page.value],
+    query: async () => {
+      const response = await axios.get(`https://api.example.com/episodes?page=${page.value}`)
+      return response.data
+    },
+  })
+}
+
+export function useEpisode(id) {
+  return useQuery({
+    key: () => ['episode', id.value],
+    query: async () => {
+      const response = await axios.get(`https://api.example.com/episode/${id.value}`)
+      return response.data
+    },
+    enabled: () => !!id.value, // Só executa quando há um ID válido
+  })
+}
+```
+
+**Uso no componente:**
+
+```vue
+<script setup>
+import { useEpisodes } from '@/composables/useEpisodes'
+
+const page = ref(1)
+const { data: episodes, isLoading, error } = useEpisodes(page)
+</script>
+
+<template>
+  <div v-if="isLoading">Carregando...</div>
+  <div v-else-if="error">Erro: {{ error.message }}</div>
+  <div v-else>
+    <div v-for="episode in episodes.results" :key="episode.id">
+      {{ episode.name }}
+    </div>
+  </div>
+</template>
+```
+
+**Vantagens:**
+
+- **Cache automático**: Dados são cacheados por chave única, evitando requisições duplicadas
+- **Estados reativos prontos**: `isLoading`, `error`, `data` disponíveis automaticamente
+- **Revalidação inteligente**: Atualiza dados automaticamente quando necessário
+- **Queries condicionais**: Use `enabled` para controlar quando a query deve executar
+- **Deduplicação**: Múltiplos componentes usando a mesma query compartilham uma única requisição
+- **Integração com Pinia**: Dados persistem no store, disponíveis em toda a aplicação
+- **DevTools**: Visualize o estado das queries no Vue DevTools
+- **TypeScript**: Tipagem completa out-of-the-box
+
+**Comparação - Antes vs Depois:**
+
+| Antes (manual)                     | Depois (Pinia Colada)           |
+| ---------------------------------- | ------------------------------- |
+| Gerenciar `loading` manualmente    | `isLoading` automático          |
+| Tratar erros em cada componente    | `error` reativo centralizado    |
+| Implementar cache próprio          | Cache automático por chave      |
+| Refetch manual                     | Revalidação inteligente         |
+| Duplicar requisições               | Deduplicação automática         |
+
 ## 📖 Documentação Adicional
 
 - [Documentação do Vue 3](https://vuejs.org/)
@@ -184,6 +282,7 @@ export default defineConfig({
 - [Componentes DaisyUI](https://daisyui.com/components/)
 - [Utilitários do TailwindCSS](https://tailwindcss.com/docs)
 - [Gerador de Temas DaisyUI](https://daisyui.com/theme-generator/)
+- [Pinia Colada](https://pinia-colada.esm.dev/)
 
 ## 📝 Notas
 
